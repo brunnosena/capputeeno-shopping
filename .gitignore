@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+.env
+/api/node_modules
+/api/yarn.lock

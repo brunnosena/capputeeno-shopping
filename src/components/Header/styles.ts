@@ -110,11 +110,11 @@ export const ResultsContent = styled.div`
 export const BagContainer = styled.div`
   position: relative;
   cursor: pointer;
-  margin-left: 24px;
+  margin-left: 16px;
   > div {
     position: absolute;
-    left: 16px;
-    top: 15px;
+    left: 7px;
+    top: -15px;
     width: 17px;
     height: 17px;
     background: var(--red);

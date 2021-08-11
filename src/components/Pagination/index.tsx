@@ -1,9 +1,6 @@
-import React from "react";
-
-import { Container, OptionPage } from "./styles";
+import React, { useCallback, useMemo } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { useMemo } from "react";
-import { useCallback } from "react";
+import { Container, OptionPage } from "./styles";
 
 interface PaginationProps {
   totalProducts: number;

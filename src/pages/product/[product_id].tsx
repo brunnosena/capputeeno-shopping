@@ -10,7 +10,7 @@ import { formatMoney } from "../../utils/money";
 import { Product } from "../../models/Product";
 import { client } from "../../services/api";
 import { useCart } from "../../hooks/cart";
-import { Container, BackContainer, ItemContainer } from "./styles";
+import { Container, BackContainer, ItemContainer } from "../../styles/Product";
 
 interface StaticProps {
   product: Product;

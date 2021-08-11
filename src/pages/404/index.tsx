@@ -2,7 +2,7 @@ import Head from "next/head";
 import { FiSearch } from "react-icons/fi";
 import { Logo } from "../../components/Header/styles";
 
-import { PageError } from "./styles";
+import { PageError } from "../../styles/404";
 
 export default function NotFound() {
   return (

@@ -15,7 +15,7 @@ import {
   Resume,
   CartItemsList,
   CheckoutContainer,
-} from "./styles";
+} from "../../styles/Cart";
 
 export default function Cart() {
   const { products, quantityCart, totalPrice, cleanCart } = useCart();

@@ -70,6 +70,18 @@ export const Category = styled.div<CategoryProps>`
   }
 `;
 
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  h1 {
+    margin-left: 16px;
+  }
+`;
+
 export const ProductsContainer = styled.div`
   display: grid;
   justify-content: space-between;

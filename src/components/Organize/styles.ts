@@ -28,7 +28,7 @@ export const Container = styled.div`
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
-      line-height: 22px;
+      line-height: 26px;
       color: #737380;
       cursor: pointer;
       & + p {

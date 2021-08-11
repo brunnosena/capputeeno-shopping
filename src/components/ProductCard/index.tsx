@@ -13,7 +13,7 @@ interface ProductCardProps {
 
 export function ProductCard({ imageUrl, name, price, id }: ProductCardProps) {
   return (
-    <Link href={`/product/${id}`}>
+    <Link href={`/product/${id}`} passHref>
       <Container>
         <Image
           width="256px"

@@ -103,8 +103,8 @@ export function useGetAllProductsByPage(
 }
 
 export const GET_ALL_PRODUCTS_BY_NAME = gql`
-  query GetProductsByName($allProductsFilter: ProductFilter) {
-    allProducts(filter: $allProductsFilter) {
+  query GetProductsByName($name: String!) {
+    allProducts(filter: {q: $name}) {
       id
       name
       category
@@ -118,9 +118,7 @@ export const GET_ALL_PRODUCTS_BY_NAME = gql`
 export function useGetAllProductsByName(filter: string) {
   return useQuery(GET_ALL_PRODUCTS_BY_NAME, {
     variables: {
-      allProductsFilter: {
         name: filter,
-      },
     },
   });
 }

@@ -18,7 +18,7 @@ export function Organize() {
   );
 
   return (
-    <button onClick={() => setOpen(false)}>
+    <div>
       <Container>
         <div onClick={() => setOpen(!open)}>
           <p>Organizar por</p>
@@ -37,6 +37,6 @@ export function Organize() {
           </div>
         )}
       </Container>
-    </button>
+    </div>
   );
 }

@@ -16,6 +16,7 @@ import {
   FilterContainer,
   CategoryList,
   Category,
+  LoadingContainer,
   ProductsContainer,
 } from "../styles/Home";
 
@@ -28,7 +29,8 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState("all");
   const [loading, setLoading] = useState(false);
-  const { products, setProducts, countProducts, setCountProducts } = useProducts();
+  const { products, setProducts, countProducts, setCountProducts } =
+    useProducts();
 
   const { stateGlobal } = useGlobalState();
 
@@ -46,19 +48,18 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
     try {
       const { data } = await refetch();
 
-      const newDataConvertedPrice = data.allProducts.map(
-        (product: Product) => {
-          return {
-            ...product,
-            convertedPrice: formatMoney(Number(product.price_in_cents)),
-          };
-        }
-      );
+      const newDataConvertedPrice = data.allProducts.map((product: Product) => {
+        return {
+          ...product,
+          convertedPrice: formatMoney(Number(product.price_in_cents)),
+        };
+      });
 
       setProducts(newDataConvertedPrice);
       setCountProducts(data._allProductsMeta.count);
     } catch (err) {
-      console.log('Erro aqui ->', JSON.stringify(err, null, 2));
+      setLoading(false);
+      console.log("Erro aqui ->", JSON.stringify(err, null, 2));
     } finally {
       setLoading(false);
     }
@@ -112,28 +113,30 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
           setCurrentPage={setCurrentPage}
           totalProducts={countProducts}
         />
-        <ProductsContainer>
-          {loading ? (
-            <>
-              <Loader type="Puff" color="#737380" />
-              <h1>Carregando...</h1>
-            </>
-          ) : products.length > 0 ? (
-            products.map((product, index) => {
-              return (
-                <ProductCard
-                  key={product.id}
-                  id={product.id}
-                  imageUrl={product.image_url}
-                  name={product.name}
-                  price={product.convertedPrice || '0'}
-                />
-              );
-            })
-          ) : (
-            <span>Nenhum item encontrado</span>
-          )}
-        </ProductsContainer>
+        {loading ? (
+          <LoadingContainer>
+            <Loader type="Puff" color="#737380" />
+            <h1>Carregando...</h1>
+          </LoadingContainer>
+        ) : (
+          <ProductsContainer>
+            {products.length > 0 ? (
+              products.map((product, index) => {
+                return (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    imageUrl={product.image_url}
+                    name={product.name}
+                    price={product.convertedPrice || "0"}
+                  />
+                );
+              })
+            ) : (
+              <span>Nenhum item encontrado</span>
+            )}
+          </ProductsContainer>
+        )}
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
@@ -159,10 +162,13 @@ export async function getStaticProps() {
         }
       }
     `,
-  }); 
+  });
 
   const newDataConvertedPrice = data.allProducts.map((product: Product) => {
-    return { ...product, convertedPrice: formatMoney(Number(product.price_in_cents)) };
+    return {
+      ...product,
+      convertedPrice: formatMoney(Number(product.price_in_cents)),
+    };
   });
 
   return {

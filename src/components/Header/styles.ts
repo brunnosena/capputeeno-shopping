@@ -107,10 +107,13 @@ export const ResultsContent = styled.div`
   }
 `;
 
+export const CartContainer = styled.div`
+`;
+
 export const BagContainer = styled.div`
   position: relative;
   cursor: pointer;
-  margin-left: 16px;
+  margin-left: 6px;
   > div {
     position: absolute;
     left: 7px;

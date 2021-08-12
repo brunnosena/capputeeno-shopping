@@ -2,6 +2,9 @@
   <h3 align="center">Challenge Boosting People</h3>
 </p>
 
+<img src=".github/capputeeno.png" width="700" /> 
+
+
 ## Sobre o Projeto
 
 O projeto é implementar um e-commerce para venda de canecas e camisetas que devem ter a seguintes funcionalidades.
@@ -74,5 +77,5 @@ yarn jest
   <h1>Open Source</h1>
   <sub>Copyright © 2021-present, brunnosena.</sub>
   <p>capputeeno <a href="https://github.com/brunnosena/capputeeno-shopping/tree/dev/LICENSE">is MIT licensed 💖</a></p>
-  <img src=".github/capputeeno.png" width="35" />
+  <img src=".github/capputeeno.png" />
 </div>

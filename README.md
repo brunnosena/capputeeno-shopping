@@ -1,7 +1,7 @@
-<p align="center">
+<div align="center">
   <h3 align="center">Challenge Boosting People</h3>
   <img src=".github/capputeeno.png" /> 
-</p>
+</div>
 
 ## Sobre o Projeto
 
